@@ -104,7 +104,7 @@ def main():
 
         print("---------------Sample 99 results---------------")
         # load the best model
-        trainer.model.load_state_dict(torch.load(args.checkpoint_path))
+        trainer.model.load_state_dict(torch.load(args.checkpoint_path, map_location=trainer.device))
         scores, result_info = trainer.test(0, full_sort=args.full_sort)
 
     print(args_str)

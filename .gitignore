@@ -1,0 +1,20 @@
+# MovieLens-1M: лицензия GroupLens не разрешает распространять данные,
+# каждый собирает их у себя через scripts/get_ml1m.py
+data/ml-1m.zip
+data/ml-1m/
+data/ML-1M*
+
+# Чекпоинты и логи обучения (чекпоинты храним в общей папке Google Drive)
+*.pt
+output/*
+!output/FMLPRec-Beauty-4eval.pt
+!output/FMLPRec-Beauty-4eval.txt
+!output/extrafilter.py
+
+# Служебное
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+venv/
+.DS_Store
+.idea/

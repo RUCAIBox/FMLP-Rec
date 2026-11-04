@@ -1,0 +1,6 @@
+# Проверено: Python 3.11, torch 2.14.1 (CPU), numpy 2.4, scipy 1.17, tqdm 4.70
+# В Google Colab всё это уже установлено — ставить ничего не нужно.
+torch>=1.8
+numpy
+scipy
+tqdm

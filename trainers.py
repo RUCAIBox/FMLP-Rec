@@ -89,7 +89,7 @@ class Trainer:
     def load(self, file_name):
         original_state_dict = self.model.state_dict()
         print(original_state_dict.keys())
-        new_dict = torch.load(file_name)
+        new_dict = torch.load(file_name, map_location=self.device)
         print(new_dict.keys())
         for key in new_dict:
             original_state_dict[key]=new_dict[key]

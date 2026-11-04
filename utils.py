@@ -13,7 +13,7 @@ from scipy.sparse import csr_matrix
 from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
 from datasets import FMLPRecDataset
 
-sequential_data_list = ['Beauty','Sports_and_Outdoors','Toys_and_Games','Yelp']
+sequential_data_list = ['Beauty','Sports_and_Outdoors','Toys_and_Games','Yelp','ML-1M']
 session_based_data_list = ['nowplaying','retailrocket','tmall','yoochoose']
 
 def set_seed(seed):
@@ -244,6 +244,12 @@ def idcg_k(k):
         return res
 
 def get_seq_dic(args):
+
+    # Любой датасет data/<name>.txt в последовательном формате подключается автоматически
+    # (например, зашумлённые версии) — вписывать его в sequential_data_list не нужно.
+    if args.data_name not in sequential_data_list and args.data_name not in session_based_data_list \
+            and os.path.exists(os.path.join(args.data_dir, args.data_name + '.txt')):
+        sequential_data_list.append(args.data_name)
 
     if args.data_name in sequential_data_list:
         args.data_file = args.data_dir + args.data_name + '.txt'
